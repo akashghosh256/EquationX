@@ -7,7 +7,7 @@ from PIL import Image
 import streamlit as st
 
 # Create a virtual environment:
-# virtualenv venv
+# virtualenv env
 
  # .\env\Scripts\activate
  # deactivate
@@ -20,7 +20,7 @@ import streamlit as st
 
 
 st.set_page_config(layout="wide")
-st.image('maths.jpg')
+st.image('equation.jpg')
  
 col1, col2 = st.columns([3,2])
 with col1:
@@ -31,8 +31,8 @@ with col2:
     st.title("Answer")
     output_text_area = st.subheader("")
  
- 
-genai.configure(api_key="AIzaSyBb4LT_bOnBQCpNZQUotbh3r0AJmmTicvw")
+
+genai.configure(api_key="CREATE YOUR GEMINI API KEY AND ADD HERE")
 model = genai.GenerativeModel('gemini-1.5-flash')
  
 # Initialize the webcam to capture video
@@ -78,7 +78,7 @@ def draw(info,prev_pos,canvas):
 def sendToAI(model,canvas,fingers):
     if fingers == [1,0,0,0,0]:
         pil_image = Image.fromarray(canvas)
-        response = model.generate_content(["Solve this math problem", pil_image])
+        response = model.generate_content(["Find the area of right angled traingle", pil_image])
         return response.text
  
  
